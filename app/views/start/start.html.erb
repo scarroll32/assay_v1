@@ -1,0 +1,68 @@
+<%= render 'pipeline' %>
+<br/>
+
+<div class="well">
+  Create a new Assay Pipeline by pressing the <b>Select Genes</b> button, or access previous completed or incomplete runs from the <b>Review Previous Assay Pipeline</b> section.
+</div>
+
+
+<div class="accordion" id="accordion1">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+		  Spreadsheet Upload
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+		  <%= form_tag import_path, multipart: true do %>
+  		    <%= file_field_tag :file %>
+  		    <%= submit_tag "Import", :class => 'btn' %>
+		  <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Review Previous Assay Pipelines
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <table class="table table-striped">
+  <tr>
+    <th>Batch</th>
+    <th>Description</th>
+    <th>Step</th>
+    <th>Status</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @batches.each do |batch| %>
+  <tr>
+    <td><%= link_to batch.id, batch %></td>
+    <td><%= link_to batch.description, batch %></td>
+    <td><%= link_to batch.step, batch %></td>
+    <td><%= link_to batch.status, batch %></td>
+    <td><%= link_to User.find(batch.user_id).name, batch%></td>
+    <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
+    <td><%= link_to 'Delete', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

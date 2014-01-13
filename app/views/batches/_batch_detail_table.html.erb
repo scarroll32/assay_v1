@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Status</th>
+    <th>COSMIC Mut Id</th>
+    <th>Chrom</th>
+    <th>Start</th>
+    <th>End</th>
+    <th></th>
+  </tr>
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @batch.batch_details.paginate(page: params[:page], per_page: 10), :entry_name => 'Record' %>
+    </div>
+    <%= will_paginate @batch.batch_details.paginate(page: params[:page], per_page: 10), :container => false %>
+</div>
+<% @batch.batch_details.paginate(page: params[:page], per_page: 10).each do |batch_detail| %>
+	<% @primer3_parameter = Primer3Parameter.find(:first, :conditions => {:batch_detail_id => batch_detail, :generated => false})%>
+
+
+  <tr>
+    <td><%= link_to batch_detail.id,  [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.status, [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.cosmic_mut_id, [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.chrom, [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.chrom_start, [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.chrom_end, [@batch, batch_detail] %></td>
+    <td><%= render partial: 'batches/buttons', locals: { :batch_detail => batch_detail } %>	
+    </td>
+
+  </tr>
+<% end %>
+</table>

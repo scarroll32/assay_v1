@@ -1,0 +1,45 @@
+
+
+<% files = primer3_files(@primer3_parameter) %>
+	
+	
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1r" data-toggle="tab">Output</a></li>
+    <li><a href="#tab2r" data-toggle="tab">Forward</a></li>
+    <li><a href="#tab3r" data-toggle="tab">Reverse</a></li>
+    <li><a href="#tab4r" data-toggle="tab">Review</a></li>
+    <li><a href="#tab5r" data-toggle="tab">Input</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1r">
+		<%= files[:formatted_file] %>
+      <pre>
+        <%= render :file => files[:formatted_file] if files[:formatted_file] %>
+      </pre>
+    </div>
+    <div class="tab-pane active" id="tab2r">
+      <pre>
+         <%= render :file => files[:forward_file] if files[:forward_file] %>
+      </pre>
+    </div>
+    <div class="tab-pane active" id="tab3r">
+      <pre>
+        <%= render :file => files[:reverse_file] if files[:reverse_file] %>
+      </pre>
+    </div>
+    <div class="tab-pane active" id="tab4r">
+      <pre>
+        <%= render "primer3_results/primer_pairs_table" %>
+      </pre>
+    </div>
+    <div class="tab-pane active" id="tab5r">
+      <pre>
+        <%= render :file => files[:input_file] if files[:input_file] %>
+      </pre>
+    </div>
+  </div>
+
+
+</div>

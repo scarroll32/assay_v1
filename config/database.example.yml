@@ -1,0 +1,32 @@
+#development:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: assay_development
+#  pool: 5
+#  username: assaydb
+#  password:
+	  
+development:
+  adapter: sqlite3 
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+	  
+
+ 
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: assay_test
+  pool: 5
+  username: assaydb
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: assay_production
+  host: localhost
+  pool: 5
+  username: assay
+  password:

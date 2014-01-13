@@ -1,0 +1,13 @@
+<div id="<%= id %>" class="modal container hide" tabindex="-1">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Assay Results</h3>
+    <%#= link_to 'Open in new tab', url, class: 'btn', target: :blank %>
+  </div>
+  <div class="modal-body" style="height: 800px">
+	  	<%= render :partial => "primer3_results/primer3_results", :locals => { :primer3 => @primer3_parameter }%>
+  </div>
+  <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn">Close</button>
+  </div>
+</div>

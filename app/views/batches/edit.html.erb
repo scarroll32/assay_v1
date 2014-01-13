@@ -1,0 +1,44 @@
+<%= render 'wizards/pipeline' %>
+
+ <%= content_tag "div", id: "batch_status", 'data-batch_status' => @batch.status do %><% end %>
+ <%= content_tag "div", id: "batch_step", 'data-batch_step' => @batch.step do %><% end %>
+
+ <br/>
+<div class="well">
+	<% if session[:step] == :lookup %>
+	The sequence location is being queried from the UCSC Genome Browser. Refresh the page at will to see if this process has completed.
+	<% else %>
+    Choose a Primer 3 default and press apply. This will apply the same settings to all genes in the batch. Optionally review the settings on each batch detail line. When ready to have the batch processed through Primer 3, click the <b>Lookup Sequence</b> step of the pipeline.
+	<% end %>
+</div>
+
+<h5>Batch Details: <%= @batch.id %></h5>
+  <%= simple_form_for @batch, :html => { :class => 'form-horizontal'} do |f| %>
+  <fieldset>
+	  <div class="form-horizontal">
+  
+  		<%= f.error_notification %>
+
+		<%= f.input :name, input_html: { value: User.find(@batch.user_id).name }, :disabled => true %>
+    	<%= f.input :step, input_html: { value: @batch.step }, :disabled => true %>
+    	<%= f.input :status, input_html: { value: @batch.status }, :disabled => true %>
+    	<%= f.input :description %>
+          <%#= f.input :primer3_setting_id, :collection => Primer3Setting.find(:all), include_blank: false, :title => 'Primer 3 Default',:label_method => :primer_sequence_id, label: "Primer 3 Default" %>
+
+          <%#= link_to 'Apply', apply_primer3_defaults_path, :class => 'btn btn-primary', :remote => true, :id => 'apply_btn' %>
+    	<%= f.input :details, :input_html => { :class => "span6", :rows => 5 } %>
+
+    	<%= render 'batches/batch_detail_table', locals: { @batch => @batch } %>
+
+
+    	<div class="form-actions">
+      	  <%= link_to 'Back', batches_path, :class => 'btn btn-info' %>
+      	  <%= f.button :submit, :class => 'btn btn-primary' %>
+    	</div>
+	</fieldset>
+  <% end %>
+<div id="footnotes_holder"></div>
+  
+
+
+

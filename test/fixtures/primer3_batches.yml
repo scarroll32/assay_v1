@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  batches: 
+  seq_identifier: MyString
+  seq_template: MyString
+  seq_target: MyString
+  task: MyString
+  pick_left: 1
+  pick_internal_oligo: 1
+  pick_right: 1
+  size_min: 1
+  size_opt: 1
+  size_max: 1
+  max_unknown_bases: 1
+  product_size_range: MyString
+  excluded_region: MyString
+  explain_flag: 1
+
+two:
+  batches: 
+  seq_identifier: MyString
+  seq_template: MyString
+  seq_target: MyString
+  task: MyString
+  pick_left: 1
+  pick_internal_oligo: 1
+  pick_right: 1
+  size_min: 1
+  size_opt: 1
+  size_max: 1
+  max_unknown_bases: 1
+  product_size_range: MyString
+  excluded_region: MyString
+  explain_flag: 1

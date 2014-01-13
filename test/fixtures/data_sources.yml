@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  version: MyString
+  filename: MyString
+  loaded_dttm: 2013-06-18 15:54:32
+  status: MyString
+
+two:
+  name: MyString
+  version: MyString
+  filename: MyString
+  loaded_dttm: 2013-06-18 15:54:32
+  status: MyString

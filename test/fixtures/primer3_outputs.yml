@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  primer_error: MyString
+  primer_warning: MyString
+  primer_left_num_returned: 1
+  primer_right_num_returned: 1
+  primer_interval_num_returned: 1
+  primer_pair_num_returned: 1
+
+two:
+  primer_error: MyString
+  primer_warning: MyString
+  primer_left_num_returned: 1
+  primer_right_num_returned: 1
+  primer_interval_num_returned: 1
+  primer_pair_num_returned: 1

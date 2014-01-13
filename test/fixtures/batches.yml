@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  batch: 1
+  status: MyString
+  status_timestamp: 2013-06-06 14:50:14
+
+two:
+  batch: 1
+  status: MyString
+  status_timestamp: 2013-06-06 14:50:14

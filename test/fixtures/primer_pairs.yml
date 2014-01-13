@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  primer3_parameter: 
+  ranking: 1
+  cosmic_mut_id: MyString
+  left_seq_selected: false
+  right_seq_selected: false
+  modified_left_sequence: MyText
+  modified_right_sequence: MyText
+  primer_pair_penalty: 9.99
+  primer_left_penalty: 9.99
+  primer_right_penalty: 9.99
+  primer_left_sequence: MyText
+  primer_right_sequence: MyText
+  primer_left: MyString
+  primer_right: MyString
+  primer_left_tm: 9.99
+  primer_right_tm: 9.99
+  primer_left_gc_percent: 9.99
+  primer_right_gc_percent: 9.99
+  primer_left_self_any_th: 9.99
+  primer_right_self_any_th: 9.99
+  primer_left_self_end_th: 9.99
+  primer_right_self_end_th: 9.99
+  primer_left_hairpin_th: 9.99
+  primer_right_hairpin_th: 9.99
+  primer_left_end_stability: 9.99
+  primer_right_end_stability: 9.99
+  primer_pair_compl_any_th: 9.99
+  primer_pair_compl_end_th: 9.99
+  primer_pair_product_size: 1
+
+two:
+  primer3_parameter: 
+  ranking: 1
+  cosmic_mut_id: MyString
+  left_seq_selected: false
+  right_seq_selected: false
+  modified_left_sequence: MyText
+  modified_right_sequence: MyText
+  primer_pair_penalty: 9.99
+  primer_left_penalty: 9.99
+  primer_right_penalty: 9.99
+  primer_left_sequence: MyText
+  primer_right_sequence: MyText
+  primer_left: MyString
+  primer_right: MyString
+  primer_left_tm: 9.99
+  primer_right_tm: 9.99
+  primer_left_gc_percent: 9.99
+  primer_right_gc_percent: 9.99
+  primer_left_self_any_th: 9.99
+  primer_right_self_any_th: 9.99
+  primer_left_self_end_th: 9.99
+  primer_right_self_end_th: 9.99
+  primer_left_hairpin_th: 9.99
+  primer_right_hairpin_th: 9.99
+  primer_left_end_stability: 9.99
+  primer_right_end_stability: 9.99
+  primer_pair_compl_any_th: 9.99
+  primer_pair_compl_end_th: 9.99
+  primer_pair_product_size: 1

@@ -1,0 +1,195 @@
+
+
+
+<div class="row">
+  <div class="span3">
+    Product Size Ranges
+  </div>
+  <div class="span9">
+    <%= f.input :primer_product_size_range, input_html: {class: "input-xxlarge"}, label: false %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="span2"><%= f.input :sequence_force_left_start, input_html: {class: 'input-mini'} %></div>
+  <div class="span2"><%= f.input :sequence_force_left_end, input_html: {class: 'input-mini'} %></div>
+  <div class="span2"><%= f.input :sequence_force_right_start, input_html: {class: 'input-mini'} %></div>
+  <div class="span2"><%= f.input :sequence_force_right_end, input_html: {class: 'input-mini'} %></div>
+</div>
+<div class="row">
+  <div class="span2"><%= f.input :primer_min_quality, input_html: {class: 'input-mini'} %></div>
+  <div class="span2"><%= f.input :primer_min_end_quality, input_html: {class: 'input-mini'} %></div>
+  <div class="span2"><%= f.input :primer_quality_range_min, input_html: {class: 'input-mini'} %></div>
+  <div class="span2"><%= f.input :primer_quality_range_max, input_html: {class: 'input-mini'} %></div>
+</div>
+
+
+<div class="row">
+  <div class="span2"></div>
+  <div class="span3">Minimum</div>
+  <div class="span3">Optimum</div>
+  <div class="span3">Maximum</div>
+</div>
+<div class="row">
+  <div class="span2">Primer Size</div>
+  <div class="span3"><%= f.input :primer_min_size, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_opt_size, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_max_size, label: false, input_html: {class: 'input-mini'} %></div>
+</div>
+<div class="row">
+  <div class="span2">Primer Tm</div>
+  <div class="span3"><%= f.input :primer_min_tm, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_opt_tm, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_max_tm, label: false, input_html: {class: 'input-mini'} %></div>
+</div>
+<div class="row">
+  <div class="span2">Primer GC%</div>
+  <div class="span3"><%= f.input :primer_min_gc, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_opt_gc_percent, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_max_gc, label: false, input_html: {class: 'input-mini'} %></div>
+</div>
+<div class="row">
+  <div class="span2">Product Tm</div>
+  <div class="span3"><%= f.input :primer_product_min_tm, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_product_opt_tm, label: false, input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_product_max_tm, label: false, input_html: {class: 'input-mini'} %></div>
+</div>
+<div class="row">
+	<div class="span11">
+	    <%= f.input :primer_product_opt_size, label: "Primer Opt Size", input_html: {class: 'input-mini'} %>
+	</div>
+	
+</div>
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_num_return, label: "Number to Return", input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_max_end_stability, label: "Max 3' Stability", input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_max_library_mispriming, label: "Max Library Mispriming", input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_pair_max_library_mispriming, label: "Pair Max Library Mispriming", input_html: {class: 'input-mini'} %>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_max_poly_x, label: 'Max Poly-X', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_first_base_index, label: 'First Base Index', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_max_ns_accepted, label: 'Max #Ns', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_gc_clamp, label: 'GC Clamp', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_salt_corrections, :collection => Primer3Template::SALT_CORRECTION_OPTIONS.index, label: 'Salt Correction Formula', input_html: {class: 'input-mini'} %>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_inside_penalty, label: 'Inside Penalty', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_outside_penalty, label: 'Outside Penalty', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_max_end_gc, label: "Max GC 3' End", input_html: {class: 'input-mini'} %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span5">
+    Choose total 3' End Distance or left/right
+  </div>
+  <div class="span2">
+    <%= f.input :primer_min_left_three_prime_distance, label: "3' End Distance Left", input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_min_right_three_prime_distance, label: "3' End Distance Right", input_html: {class: 'input-mini'} %>
+  </div>
+   <div class="span2">
+    <%= f.input :primer_min_three_prime_distance, label: "3' End Distance", input_html: {class: 'input-mini'} %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_pair_max_diff_tm, input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span9">
+      <%= f.input :primer_tm_formula, :collection => 0..Primer3Template::PRIMER_TM_FORMULA_OPTIONS.length, :label_method => lambda { |i| Primer3Template::PRIMER_TM_FORMULA_OPTIONS[i] }, label: 'Thermo Parms', input_html: {class: 'input-large'},  selected: Primer3Template::PRIMER_TM_FORMULA_OPTIONS[f.object.primer_tm_formula]  %>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_min_5_prime_overlap_of_junction, label: '5 Junction Overlap', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_min_3_prime_overlap_of_junction, label: '3 Junction Overlap', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_salt_monovalent, label: 'Conc Monovalent Cations', input_html: {class: 'input-mini'} %></div>
+  <div class="span2">
+    <%= f.input :primer_salt_divalent, label: 'Conc Divalent Cations', input_html: {class: 'input-mini'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_dntp_conc, label: 'Conc dNTPs',input_html: {class: 'input-mini'} %>
+  </div>
+</div>
+
+
+  <div class="row">
+    <div class="span2"><%= f.input :primer_dna_conc, label: 'Conc Annealing Oligo',input_html: {class: 'input-mini'} %>
+  </div>
+    <div class="span2"><%= f.input :primer_sequencing_spacing, label: 'Sequencing Spacing', input_html: {class: "input-mini"} %></div>
+    <div class="span2"><%= f.input :primer_sequencing_interval, label: 'Sequencing Interval', input_html: {class: "input-mini"} %></div>
+    <div class="span2"><%= f.input :primer_sequencing_lead, label: 'Sequencing Lead', input_html: {class: "input-mini"} %></div>
+  <div class="span3"><%= f.input :primer_sequencing_accuracy, label: 'Sequencing Accuracy', input_html: {class: "input-mini"} %></div>
+</div>
+
+<div class="row">
+  <div class="span1">
+<%= f.input :primer_liberal_base, as: :boolean, label: 'Liberal Base' %>
+</div>
+<div class="span1">
+<%#= f.input :show_debugging_input, as: :boolean, label: 'Show Debugging Info' %>
+</div>
+<div class="span1">
+<%= f.input :primer_lib_ambiguity_codes_consensus, as: :boolean, label: 'Treat ambiguity codes as consensus' %>
+</div>
+<div class="span1">
+<%= f.input :primer_lowercase_masking, as: :boolean, label: 'Lowercase Masking' %>
+</div>
+<div class="span1">
+<%= f.input :primer_pick_anyway, as: :boolean, label: 'Pick Anyway' %>
+</div>
+<div class="span1">
+<%= f.input :primer_explain_flag, as: :boolean, label: 'Print Statistics' %>
+</div>
+<div class="span2">
+<%= f.input :primer_thermodynamic_oligo_alignment, as: :boolean %>
+</div>
+<div class="span3">
+<%= f.input :primer_thermodynamic_template_alignment, as: :boolean %>
+</div>
+</div>
+
+
+

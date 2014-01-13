@@ -1,0 +1,14 @@
+<% @primer3_setting.attributes.each_pair do |name, value| %>
+    <div class="row">
+      <div class="span5">
+        <b><%= name.upcase %>:</b>
+      </div>
+      <div class="span 7">
+        <%= value %>
+      </div>
+    </div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_primer3_setting_path(@primer3_setting), :class => 'btn btn-info' %> 
+<%= link_to 'Back', primer3_settings_path, :class => 'btn btn-info' %>

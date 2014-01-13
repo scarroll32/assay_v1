@@ -1,0 +1,29 @@
+<h1>Primer 3 Settings</h1>
+
+<table class='table table-striped'>
+  <tr>
+    <th>Owner</th>
+    <th>Sequence ID</th>
+    <th>File Type</th>
+    <th>Last Update</th>
+    <th>File ID</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @primer3_settings.each do |primer3_settings| %>
+  <tr>
+    <td><%= User.find(primer3_settings.user_id).name %></td>
+    <td><%= link_to primer3_settings.sequence_id, edit_primer3_setting_path(primer3_settings) %></td>
+    <td><%= link_to primer3_settings.p3_file_type, edit_primer3_setting_path(primer3_settings) %></td>
+    <td><%= link_to primer3_settings.updated_at, edit_primer3_setting_path(primer3_settings) %></td>
+    <td><%= link_to primer3_settings.p3_file_id, edit_primer3_setting_path(primer3_settings) %></td>
+    <td><%= link_to 'Edit', edit_primer3_setting_path(primer3_settings) %></td>
+    <td><%= link_to 'Destroy', primer3_settings, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Primer3 setting', new_primer3_setting_path %>

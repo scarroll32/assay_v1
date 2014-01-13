@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<%= link_to 'Return to Batch', batch_path(@batch_detail.batch_id), :class => 'btn btn-info' %><br/>
+
+
+
+<p>
+  <b>Batch:</b>
+  <%= @batch_detail.batch_id %>
+</p>
+
+<p>
+  <b>COSMIC ID:</b>
+  <%= @batch_detail.cosmic_mut_id %>
+</p>
+
+<p>
+  <b>Bin:</b>
+  <%= @batch_detail.bin %>
+</p>
+
+<p>
+  <b>Chromosome:</b>
+  <%= @batch_detail.chrom %>
+</p>
+
+<p>
+  <b>Chromosome Start:</b>
+  <%= @batch_detail.chrom_start %>
+</p>
+
+<p>
+  <b>Chromosome End:</b>
+  <%= @batch_detail.chrom_end %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @batch_detail.status %>
+</p>
+
+<p>
+  <b>Sequence:</b>
+  <%= @batch_detail.dna %>
+</p>
+
+<p>
+  <%= @batch_detail.id %>
+  <%= @batch_detail.batch_id %>
+</p>  
+
+
+<table class='table table-striped'>
+	
+  <tr>
+    <th>Sequence ID</th>
+    <th>Status</th>
+	<th></th>
+    <th></th>
+  </tr>	
+  
+
+<% @batch_detail.primer3_parameters.each do |primer3_parameter| %>
+  <tr>
+    <td><%= link_to primer3_parameter.sequence_id, [:edit, @batch_detail, primer3_parameter] %></td>
+    <td><%= link_to primer3_parameter.generated, [:edit, @batch_detail, primer3_parameter] %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

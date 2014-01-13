@@ -1,0 +1,76 @@
+ <div class="accordion" id="main_accordian">
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#main_accordian" href="#collapseOne">
+          General Primer Picking Conditions
+        </a>
+      </div>
+      <div id="collapseOne" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <%= render :partial => "primer3_shared/main_collapse1", :locals => { :f => f } %>
+        </div>
+      </div>
+    </div>
+     <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#main_accordian" href="#collapseTwo">
+          Thermodynamic Secondary Structure Alignments
+        </a>
+      </div>
+      <div id="collapseTwo" class="accordion-body collapse">
+        <div class="accordion-inner">
+           <%= render :partial => "primer3_shared/main_collapse2", :locals => { :f => f } %>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#main_accordian" href="#collapseThree">
+          Objective Function Penalty Weights for Primers
+        </a>
+      </div>
+      <div id="collapseThree" class="accordion-body collapse">
+        <div class="accordion-inner">
+           <%= render :partial => "primer3_shared/main_collapse3", :locals => { :f => f } %>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#main_accordian" href="#collapseFour">
+          Objective Function Penalty Weights for Primer Pairs
+        </a>
+      </div>
+      <div id="collapseFour" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <%= render :partial => "primer3_shared/main_collapse4", :locals => { :f => f } %>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#main_accordian" href="#collapseFive">
+          Internal Oligo (Hyb Oligo) General Conditions
+        </a>
+      </div>
+      <div id="collapseFive" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <%= render :partial => "primer3_shared/main_collapse5", :locals => { :f => f } %>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#main_accordian" href="#collapseSix">
+          Objective Function Penalty Weights for Internal Oligos (Hyb Oligos)
+        </a>
+      </div>
+      <div id="collapseSix" class="accordion-body collapse">
+        <div class="accordion-inner">
+
+       <%= render :partial => "primer3_shared/main_collapse6", :locals => { :f => f } %>
+
+        </div>
+      </div>
+    </div>
+  </div>

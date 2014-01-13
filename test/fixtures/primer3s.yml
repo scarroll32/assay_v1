@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  user: 
+  batch_detail: 
+  generated: false
+  status: MyString
+
+two:
+  type: 
+  user: 
+  batch_detail: 
+  generated: false
+  status: MyString

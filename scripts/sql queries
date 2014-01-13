@@ -1,0 +1,20 @@
+update cosmics
+set ampliseq = 'f', vogel = 'f';
+
+
+update cosmics 
+set ampliseq = 't'
+where cosmic_mut_id in (select cosmic_mut_id from ampliseqs);
+
+update cosmics
+set vogel = 't'
+where gene in (select gene from vogelsteins);
+
+select count(*) from (select a.id from cosmics a where a.vogel = 't' except select b.id from cosmics b where b.ampliseq = 't')  25642
+
+select count(*) from (select b.id from cosmics b where b.ampliseq = 't' except select a.id from cosmics a where a.vogel = 't');   834
+
+insert into batches values (null,1,'created',current_date,current_date,current_date);
+
+insert into batch_details select null,1,gene,grch37_start,grch37_stop,'unprocessed',current_date,current_date,null
+from cosmics where selected = 't';

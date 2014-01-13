@@ -1,0 +1,70 @@
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_wt_tm_lt, input_html: {class: "input-mini"}, label: 'Tm - Less Than' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_tm_gt, input_html: {class: "input-mini"}, label: 'Tm - Greater Than' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_size_lt, input_html: {class: "input-mini"}, label: 'Size - Less Than' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_size_gt, input_html: {class: "input-mini"}, label: 'Size - Greater Than' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_gc_percent_lt, input_html: {class: "input-mini"}, label: 'GC% - Less Than' %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_wt_gc_percent_gt, input_html: {class: "input-mini"}, label: 'GC% - Less Than' %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_wt_self_any_th, input_html: {class: "input-mini"}, label: 'TH: Self Complementarity' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_self_end_th, input_html: {class: "input-mini"}, label: 'TH: Self Complementarity' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_hairpin_th, input_html: {class: "input-mini"}, label: 'TH: Self Complementarity' %>
+  </div>
+  <div class="span5">
+    <%= f.input :primer_wt_template_mispriming_th, input_html: {class: "input-mini"}, label: 'TH: Template Mispriming' %>
+  </div>
+</div>
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_wt_self_any, input_html: {class: "input-mini"}, label: 'Self Complementarity' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_self_end, input_html: {class: "input-mini"} %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_template_mispriming, input_html: {class: "input-mini"}, label: "Template Mispriming" %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_num_ns, input_html: {class: "input-mini"}, label: "#N's" %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_library_mispriming, input_html: {class: "input-mini"}, label: "Library Mispriming" %>
+  </div>
+  
+</div>
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_wt_seq_qual, input_html: {class: "input-mini"}, label: "Sequence Quality" %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_end_qual, input_html: {class: "input-mini"}, label: 'End Sequence Quality' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_wt_pos_penalty, input_html: {class: "input-mini"}, label: "Position Penalty" %>
+  </div>
+  <div class="span5">
+    <%= f.input :primer_wt_end_stability, input_html: {class: "input-mini"}, label: "End Stability" %>
+  </div>
+</div>

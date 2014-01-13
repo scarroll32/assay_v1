@@ -1,0 +1,38 @@
+<!-- field_criterias must be in angular $scope.modalCriteriaList variable -->
+
+<div id="editCriteriasModal" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Criteria on {{modalCriteriaList.field_name}}</h3>
+  </div>
+
+  <div class="modal-body">
+    <b>Type:</b> &nbsp;
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" class="btn btn-small"
+              ng-click="modalCriteriaList.type='AND'" ng-class="activeWhenType('AND')">AND</button>
+      <button type="button" class="btn btn-small"
+              ng-click="modalCriteriaList.type='OR'"  ng-class="activeWhenType('OR')">OR</button>
+    </div>
+    <hr/>
+
+    <div ng-repeat="criteria in modalCriteriaList.criterias">
+      <select ng-options="item.id as item.name for item in possible_conditions" ng-model="criteria.condition" ng-change="conditionChanged(criteria)"></select>
+
+      <span ng-repeat="value in criteria.values">
+        <%= text_field_tag nil, nil, class: 'input-medium', 'ng-model' => 'value.data' %>
+        &nbsp;
+      </span>
+      <span ng-show="multiFieldCriteria(criteria)">
+        <%= link_to "Add Value", '', 'ng-click' => 'criteria.values.push({data: ""})' %>
+        |
+      </span>
+      <%= link_to "Remove Criteria", '', 'ng-click' => "modalCriteriaList.criterias.removeAt($index)" %>
+    </div>
+    <button type="button" class="btn btn-small" ng-click="modalCriteriaList.criterias.push(newCriteria())">Add Criteria</button>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>

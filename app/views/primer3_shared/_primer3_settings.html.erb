@@ -1,0 +1,41 @@
+<hr>
+<div class="form-inputs">
+  <%= simple_form_for(primer3) do |f| %>
+    <%= f.error_notification %>
+
+  <div class="row">
+    <div class="span4">
+      <%= f.input :primer_task, :collection => Primer3Template::TASK_OPTIONS, :label => 'Task' %>
+    </div>
+    <div class="span4">
+      <%= f.input :sequence_id, :label => 'Sequence ID' %>
+    </div>
+    <div class="span4">
+      <%= f.input :primer_mispriming_library, :collection => Primer3Template::MISPRIMING_LIBRARY_OPTIONS, :label => 'Mispriming Library' %>
+    </div>
+  </div>
+  <%= f.input :sequence_template, as: :text, input_html: {class: 'span12', :rows => 3} %>
+  <%= f.input :sequence_primer_pair_ok_region_list, input_html: {class: "input-large"} %>
+  
+  <div class="row">
+    <div class="span2">
+      <%= f.input :primer_pick_left_primer, as: :boolean, label: 'Pick Left' %>
+    </div>
+    <div class="span2">
+      <%= f.input :primer_pick_internal_oligo, as: :boolean, label: 'Pick Internal Oligo' %>
+    </div>
+    <div class="span7">
+      <%= f.input :primer_pick_right_primer, as: :boolean, label: 'Pick Right' %>
+    </div>
+  </div>
+
+
+  <%= render :partial => 'primer3_shared/primer3_main_accordian', :locals => { :f => f } %>
+
+
+
+<div class="form-actions">
+  <%= f.button :submit %>
+</div>
+  <% end %>
+</div>

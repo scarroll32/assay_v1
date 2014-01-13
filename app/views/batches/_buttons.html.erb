@@ -1,0 +1,41 @@
+
+	 <% case @state %>
+		<% when :locate %>
+		  <div class="btn-group">
+            <a href="#" class="btn btn-mini btn-info btn-disabled" role="button" data-toggle="modal">UCSC</a>
+	   	    <a href="#" class="btn btn-mini btn-info btn-disabled" role="button" data-toggle="modal">Primer 3</a>
+	  	    <a href="#" class="btn btn-mini btn-info btn-disabled" role="button" data-toggle="modal">Assay</a>
+		  </div>
+		<% when :configure %>
+		  <div class="btn-group">
+	        <a href="#batchModal<%= batch_detail.id %>" class="btn btn-mini btn-success" role="button" data-toggle="modal">UCSC</a>
+	  	   	<a href="#primer3Modal<%= batch_detail.id %>" class="btn btn-mini btn-success" role="button" data-toggle="modal">Primer 3</a>
+  	        <a href="#" class="btn btn-mini btn-info btn-disabled" role="button" data-toggle="modal">Assay</a>
+		  </div>
+          <%#= render 'batches/modal', id: "batchModal#{batch_detail.id}", url:
+"http://genome.ucsc.edu/cgi-bin/hgTracks?org=human&db=hg19&position=chr#{batch_detail.chrom}:#{batch_detail.chrom_start}" %>
+		  <%= render 'batches/primer3_modal', id: "primer3Modal#{batch_detail.id}" %>
+		  <%#= render 'batches/assay_modal', id: "assayModal#{batch_detail.id}" %>
+		<% when :assay %>
+			<div class="btn-group">
+	          <a href="#batchModal<%= batch_detail.id %>" class="btn btn-mini btn-success" role="button" data-toggle="modal">UCSC</a>
+	  	   	  <a href="#primer3Modal<%= batch_detail.id %>" class="btn btn-mini btn-success" role="button" data-toggle="modal">Primer 3</a>
+	  	  	  <a href="#assayModal<%= batch_detail.id %>" class="btn btn-mini btn-success" role="button" data-toggle="modal">Assay</a>
+			</div>
+	        <%#= render 'batches/modal', id: "batchModal#{batch_detail.id}", url: "http://genome.ucsc.edu/cgi-bin/hgTracks?org=human&db=hg19&position=chr#{batch_detail.chrom}:#{batch_detail.chrom_start}" %>
+  		    <%= render 'batches/assay_modal', id: "assayModal#{batch_detail.id}" %>
+  		    <%= render 'batches/primer3_modal', id: "primer3Modal#{batch_detail.id}" %>
+	<% end %>
+	
+    <%#= link_to 'Delete', [@batch, batch_detail], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+		
+	
+			
+		
+		
+		
+
+      
+	 
+
+   

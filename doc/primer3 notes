@@ -1,0 +1,57 @@
+GAGATGGAACGCACGGACATCACCATGAAGCACAAGCTGG
+[GCGGGGGCC]
+AGTACGGGGAGGTGTACGAGGGCGTGTGGAAGAAATACAG
+
+
+
+1605  chr9  133738356 133738357 COSM12576
+
+chr9  133738356 133738357 1#ABL1#
+
+SEQUENCE_ID=example
+SEQUENCE_TEMPLATE=GTAGTCAGTAGACNATGACNACTGACGATGCAGACNACACACACACACACAGCACACAGGTATTAGTGGGCCATTCGATCCCGACCCAAATCGATAGCTACGATGACG
+SEQUENCE_TARGET=37,21
+PRIMER_TASK=pick_detection_primers
+PRIMER_PICK_LEFT_PRIMER=1
+PRIMER_PICK_INTERNAL_OLIGO=1
+PRIMER_PICK_RIGHT_PRIMER=1
+PRIMER_OPT_SIZE=18
+PRIMER_MIN_SIZE=15
+PRIMER_MAX_SIZE=21
+PRIMER_MAX_NS_ACCEPTED=1
+PRIMER_PRODUCT_SIZE_RANGE=75-100
+P3_FILE_FLAG=1
+SEQUENCE_INTERNAL_EXCLUDED_REGION=37,21
+PRIMER_EXPLAIN_FLAG=1
+=
+
+SEQUENCE_ID=example
+SEQUENCE_TEMPLATE=GTAGTCAGTAGACNATGACNACTGACGATGCAGACNACACACACACACACAGCACACAGGTATTAGTGGGCCATTCGATCCCGACCCAAATCGATAGCTACGATGACG
+SEQUENCE_TARGET=37,21
+PRIMER_TASK=pick_detection_primers
+PRIMER_PICK_LEFT_PRIMER=1
+PRIMER_PICK_INTERNAL_OLIGO=1
+PRIMER_PICK_RIGHT_PRIMER=1
+PRIMER_OPT_SIZE=18
+PRIMER_MIN_SIZE=15
+PRIMER_MAX_SIZE=21
+PRIMER_MAX_NS_ACCEPTED=1
+PRIMER_PRODUCT_SIZE_RANGE=75-100
+P3_FILE_FLAG=1
+SEQUENCE_INTERNAL_EXCLUDED_REGION=37,21
+PRIMER_EXPLAIN_FLAG=1
+PRIMER_THERMODYNAMIC_PARAMETERS_PATH=/usr/local/Cellar/primer3/2.3.4/bin/primer3_config/
+
+PRIMER_LEFT_EXPLAIN=considered 65, too many Ns 17, low tm 48, ok 0
+PRIMER_RIGHT_EXPLAIN=considered 228, low tm 159, high tm 12, high hairpin stability 22, ok 35
+PRIMER_INTERNAL_EXPLAIN=considered 0, ok 0
+PRIMER_PAIR_EXPLAIN=considered 0, ok 0
+PRIMER_LEFT_NUM_RETURNED=0
+PRIMER_RIGHT_NUM_RETURNED=0
+PRIMER_INTERNAL_NUM_RETURNED=0
+PRIMER_PAIR_NUM_RETURNED=0
+
+
+rails g scaffold Primer3Batch batches:references seq_identifier seq_template seq_target task pick_left:integer pick_internal_oligo:integer pick_right:integer size_min:integer size_opt:integer size_max:integer max_unknown_bases:integer product_size_range excluded_region explain_flag:integer
+
+rails g scaffold Primer3BatchDetail batch_details:references seq_identifier seq_template seq_target task pick_left:integer pick_internal_oligo:integer pick_right:integer size_min:integer size_opt:integer size_max:integer max_unknown_bases:integer product_size_range excluded_region explain_flag:integer  left_explain right_explain internal_explain left_num right_num internal_num pair_num

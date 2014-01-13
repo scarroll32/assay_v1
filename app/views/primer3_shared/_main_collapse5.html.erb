@@ -1,0 +1,124 @@
+
+<div class="row">
+  <div class="span3">
+  </div>
+  <div class="span3">
+    Minimum
+  </div>
+  <div class="span3">
+    Optimum
+  </div>
+  <div class="span3">
+    Maximum
+  </div>
+</div>
+
+<div class="row">
+  <div class="span3">
+    Hyb Oligo Size
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_min_size, input_html: {class: "input-mini"}, label: false %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_opt_size, input_html: {class: "input-mini"}, label: false %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_max_size, input_html: {class: "input-mini"}, label: false %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span3">
+    Hyb Oligo Tm
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_min_tm, input_html: {class: "input-mini"}, label: false %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_opt_tm, input_html: {class: "input-mini"}, label: false %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_max_tm, input_html: {class: "input-mini"}, label: false %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span3">
+    Hyb Oligo GC%
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_min_gc, input_html: {class: "input-mini"}, label: false %>
+  </div>
+  <div class="span3">
+    <%#= f.input :primer_internal_opt_gc_percent, input_html: {class: "input-mini"}, label: false %>
+  </div>
+  <div class="span3">
+    <%= f.input :primer_internal_max_gc, input_html: {class: "input-mini"}, label: false %>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="span5">
+    <%#= f.input :primer_internal_max_self_any_th, input_html: {class: "input-mini"}, label: 'TH: Internal Oligo Self Complementarity' %>
+  </div>
+  <div class="span6">
+   
+  </div>
+</div>
+<div class="row">
+  <div class="span4">
+    <%#= f.input :primer_internal_max_self_end_th, input_html: {class: "input-mini"}, label: "TH: Internal Max 3' End Self Oligo Self Complementarity" %>
+  </div>
+  <div class="span4">
+    <%#= f.input :primer_internal_max_hairpin_th, input_html: {class: "input-mini"}, label: "TH: Internal Oligo Hairpin" %>
+  </div>
+    <div class="span3">
+    <%#= f.input :primer_internal_max_self_end_th, input_html: {class: "input-mini"}, label: "TH: Internal Oligo Hairpin" %>
+  </div>
+</div>
+<div class="row">
+  <div class="span5">
+    <%= f.input :primer_internal_max_self_any, input_html: {class: "input-mini"}, label: "Internal Oligo Self Complementarity" %>
+  </div>
+  <div class="span6">
+    <%= f.input :primer_internal_max_self_end, input_html: {class: "input-mini"}, label: "Internal Oligo Max 3' End Self Complementarity" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span5">
+    <%= f.input :primer_internal_min_quality, input_html: {class: "input-mini"}, label: "Internal Oligo Min Sequence Quality" %>
+  </div>
+  <div class="span6">
+    <%= f.input :primer_internal_max_ns_accepted, input_html: {class: "input-mini"}, label: "Max #Ns" %>
+  </div>
+</div>
+<div class="row">
+  <div class="span5">
+    <%= f.input :primer_internal_max_poly_x, input_html: {class: "input-mini"}, label: "Internal Oligo Max Poly-X" %>
+  </div>
+  <div class="span6">
+    <%#= f.input :primer_internal_mishyb_library, :collection => Primer3Batch::MISPRIMING_LIBRARY_OPTIONS, :label => 'Mispriming Library' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span5">
+    <%= f.input :primer_internal_max_library_mishyb, input_html: {class: "input-mini"}, label: "Internal Oligo Max Library Mishyb" %>
+  </div>
+  <div class="span6">
+    <%= f.input :primer_internal_salt_monovalent, input_html: {class: "input-mini"}, label: "Internal Oligo Conc of monovalent cations" %>
+  </div>
+</div>
+<div class="row">
+  <div class="span5">
+    <%= f.input :primer_internal_dna_conc, input_html: {class: "input-mini"}, label: "Internal Oligo DNA Concentration" %>
+  </div>
+  <div class="span6">
+    <%= f.input :primer_internal_salt_divalent, input_html: {class: "input-mini"}, label: "Internal Oligo conc of divalent cations" %>
+  </div>
+</div>
+
+<%= f.input :primer_internal_dntp_conc, input_html: {class: "input-mini"}, label: "Internal Oligo [dNTP]" %>

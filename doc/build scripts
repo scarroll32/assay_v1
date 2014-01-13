@@ -1,0 +1,141 @@
+rails g scaffold cosmic doc:string  cosmic_release:string  cosmic_mut_id:string  gene:string  accession_number:string mut_description:string mut_syntax_cds:string  mut_syntax_aa:string  chromosome:string  grch37_start:string  grch37_stop:string  mut_nt:string  mut_aa:string  tumour_site:string  mutated_samples:integer  examined_samples:integer  mut_freq:decimal
+
+cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  mutated_samples, examined_samples, mut_freq
+
+rails g scaffold ampliseq gene accession_number abbrevtd:integer cosmic_mut_id mut_syntax_cds mut_syntax_aa strand hg19_coordinates amplicon_id
+
+gene,accession_number,cosmic_mut_id,mut_syntax_cds,mut_syntax_aa,strand,hg19_coordinates,amplicon_id
+
+# stanford
+create table stanford_csv (gene text,mutation_aa text ,mutation_cds text)
+copy stanford_csv from '/home/assay/datafiles/Somatic_cancer_genelist-Stanford.csv' delimiter ',' csv;
+
+insert into ampliseqs select null,gene,accession_number,abbrevtd,cosmic_mut_id,mut_syntax_cds,mut_syntax_aa,strand,hg19_coordinates,amplicon_id,current_date,current_date from ampliseq_tmp
+
+insert into vogelsteins select null,gene,current_date,current_date from vogelstein_tmp;
+
+create table cosmics_tmp (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+create table cosmics_66 (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+create table cosmics_65 (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+create table cosmics_64 (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+create table cosmics_63 (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+create table cosmics_62 (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+create table cosmics_61 (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+create table cosmics_60 (cosmic_release, cosmic_mut_id, gene, accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa, chromosome, grch37_start,  grch37_stop, mut_nt, mut_aa, tumour_site, mutated_samples, examined_samples, mut_freq)
+
+
+insert into cosmics select null, 'cosmic', cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  mutated_samples, examined_samples, mut_freq, current_date, current_date from cosmics_tmp;
+
+insert into cosmic_60 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  mutated_samples, examined_samples, mut_freq, current_date, current_date, null, null, null from cosmics_tmp;
+
+# sqlite
+insert into cosmics select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  mutated_samples, examined_samples, mut_freq, current_date, current_date, 'f', 'f', 'f' from cosmic_65_tmp;
+
+# postgres
+insert into cosmics select id, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  mutated_samples, examined_samples, cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmic_65_tmp;
+
+insert into cosmic_60 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  cast(mutated_samples as numeric), cast(examined_samples as numeric), cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmics_tmp;
+
+create table cosmic_61 as select * from cosmic_60 limit 1;
+delete from cosmic_61;
+create sequence cosmic_61_id_seq;
+alter table cosmic_61 alter id set default nextval('cosmic_61_id_seq');
+delete from cosmics_tmp;
+copy cosmics_tmp from '/home/assay/UCSCMutExp_v61_260912.csv' delimiter ',' csv;
+insert into cosmic_61 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  cast(mutated_samples as numeric), cast(examined_samples as numeric), cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmics_tmp;
+
+
+create table cosmic_62 as select * from cosmic_60 limit 1;
+delete from cosmic_62;
+create sequence cosmic_62_id_seq;
+alter table cosmic_62 alter id set default nextval('cosmic_62_id_seq');
+delete from cosmics_tmp;
+copy cosmics_tmp from '/home/assay/UCSCMutExp_v62_291112.csv' delimiter ',' csv;
+insert into cosmic_62 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  cast(mutated_samples as numeric), cast(examined_samples as numeric), cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmics_tmp;
+
+create table cosmic_63 as select * from cosmic_60 limit 1;
+delete from cosmic_63;
+create sequence cosmic_63_id_seq;
+alter table cosmic_63 alter id set default nextval('cosmic_63_id_seq');
+delete from cosmics_tmp;
+copy cosmics_tmp from '/home/assay/UCSCMutExp_v63_300113.csv' delimiter ',' csv;
+insert into cosmic_63 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  cast(mutated_samples as numeric), cast(examined_samples as numeric), cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmics_tmp;
+
+create table cosmic_64 as select * from cosmic_60 limit 1;
+delete from cosmic_64;
+create sequence cosmic_64_id_seq;
+alter table cosmic_64 alter id set default nextval('cosmic_64_id_seq');
+delete from cosmics_tmp;
+copy cosmics_tmp from '/home/assay/UCSCMutExp_v64_260313.csv' delimiter ',' csv;
+insert into cosmic_64 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  cast(mutated_samples as numeric), cast(examined_samples as numeric), cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmics_tmp;
+
+create table cosmic_65 as select * from cosmic_60 limit 1;
+delete from cosmic_65;
+create sequence cosmic_65_id_seq;
+alter table cosmic_65 alter id set default nextval('cosmic_65_id_seq');
+delete from cosmics_tmp;
+copy cosmics_tmp from '/home/assay/UCSCMutExp_v65_100613.csv' delimiter ',' csv;
+insert into cosmic_65 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  cast(mutated_samples as numeric), cast(examined_samples as numeric), cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmics_tmp;
+
+create table cosmic_66 as select * from cosmic_60 limit 1;
+delete from cosmic_66;
+create sequence cosmic_66_id_seq;
+alter table cosmic_66 alter id set default nextval('cosmic_66_id_seq');
+delete from cosmics_tmp;
+copy cosmics_tmp from '/home/assay/UCSCMutExp_v66_250713.csv' delimiter ',' csv;
+insert into cosmic_66 select null, cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  cast(mutated_samples as numeric), cast(examined_samples as numeric), cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmics_tmp;
+
+insert into cosmics (cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  mutated_samples, examined_samples, mut_freq,created_at,updated_at,vogel,ampliseq,selected)
+select cosmic_release,  cosmic_mut_id,  gene,  accession_number, mut_description, mut_syntax_cds,  mut_syntax_aa,  chromosome,  grch37_start,  grch37_stop,  mut_nt,  mut_aa,  tumour_site,  mutated_samples, examined_samples, cast(mut_freq as numeric), current_date, current_date, 'f', 'f', 'f' from cosmic_66;
+
+alter table cosmics alter column  mut_syntax_cds type text;
+alter table cosmics alter column   mut_syntax_aa  type text;
+alter table cosmics alter column    mut_syntax_cds  type text;
+alter table cosmics alter column      mut_nt    type text;
+alter table cosmics alter column     mut_aa    type text;
+alter table cosmics alter column     tumour_site    type text;
+
+
+SQL
+
+select a.* from cosmics a where exists 
+(select b.cosmic_mut_id, count(b.*) from cosmics b where b.cosmic_mut_id = a.cosmic_mut_id group by b.cosmic_mut_id having count(b.*) > 1)
+order by a.cosmic_mut_id;
+
+select count(distinct split_part(gene,'_',1)) from cosmic_61;
+
+alter table cosmics add column gene_base text;
+
+PRIMER_PAIR_4_PENALTY=0.283209
+PRIMER_LEFT_4_PENALTY=0.179089
+PRIMER_RIGHT_4_PENALTY=0.104120
+PRIMER_LEFT_4_SEQUENCE=CTGCCAATCCCGTCTCTCTG
+PRIMER_RIGHT_4_SEQUENCE=GGCCCACAAAGACACCAAAC
+PRIMER_LEFT_4=77,20
+PRIMER_RIGHT_4=196,20
+PRIMER_LEFT_4_TM=60.179
+PRIMER_RIGHT_4_TM=59.896
+PRIMER_LEFT_4_GC_PERCENT=60.000
+PRIMER_RIGHT_4_GC_PERCENT=55.000
+PRIMER_LEFT_4_SELF_ANY_TH=0.00
+PRIMER_RIGHT_4_SELF_ANY_TH=0.00
+PRIMER_LEFT_4_SELF_END_TH=0.00
+PRIMER_RIGHT_4_SELF_END_TH=0.00
+PRIMER_LEFT_4_HAIRPIN_TH=0.00
+PRIMER_RIGHT_4_HAIRPIN_TH=0.00
+PRIMER_LEFT_4_END_STABILITY=3.3500
+PRIMER_RIGHT_4_END_STABILITY=2.9300
+PRIMER_PAIR_4_COMPL_ANY_TH=0.00
+PRIMER_PAIR_4_COMPL_END_TH=0.00
+PRIMER_PAIR_4_PRODUCT_SIZE=120
+
+
+rails g model primer_pair primer3_parameter:references ranking:integer cosmic_mut_id:string left_seq_selected:boolean right_seq_selected:boolean modified_left_sequence:text  modified_right_sequence:text primer_pair_penalty:decimal primer_left_penalty:decimal primer_right_penalty:decimal primer_left_sequence:text primer_right_sequence:text primer_left:string primer_right:string primer_left_tm:decimal primer_right_tm:decimal primer_left_gc_percent:decimal primer_right_gc_percent:decimal primer_left_self_any_th:decimal primer_right_self_any_th:decimal primer_left_self_end_th:decimal primer_right_self_end_th:decimal primer_left_hairpin_th:decimal primer_right_hairpin_th:decimal primer_left_end_stability:decimal primer_right_end_stability:decimal primer_pair_compl_any_th:decimal primer_pair_compl_end_th:decimal primer_pair_product_size:integer
+

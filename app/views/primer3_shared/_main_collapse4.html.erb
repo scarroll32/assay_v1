@@ -1,0 +1,43 @@
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_pair_wt_product_tm_lt, input_html: {class: "input-mini"}, label: 'Tm - Less Than' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_pair_wt_product_tm_gt, input_html: {class: "input-mini"}, label: 'Tm - Greater Than' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_pair_wt_product_size_lt, input_html: {class: "input-mini"}, label: 'Size - Less Than' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_pair_wt_product_size_gt, input_html: {class: "input-mini"}, label: 'Size - Greater Than' %>
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_pair_wt_compl_any_th, input_html: {class: "input-medium"}, label: 'TH: Any Complementarity' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_pair_wt_compl_end_th, input_html: {class: "input-medium"}, label: "TH: 3' End Complementarity" %>
+  </div>
+  <div class="span7">
+    <%#= f.input :primer_pair_wt_template_mispriming_th, input_html: {class: "input-medium"}, label: 'TH: Template Mispriming Weight' %>
+  </div>
+</div>
+<div class="row">
+  <div class="span2">
+    <%= f.input :primer_pair_wt_diff_tm, input_html: {class: "input-medium"}, label: "Tm Difference" %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_pair_wt_library_mispriming, input_html: {class: "input-medium"}, label: "Library Mispriming" %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_pair_wt_pr_penalty, input_html: {class: "input-medium"}, label: 'Primer Penalty Weight' %>
+  </div>
+  <div class="span2">
+    <%= f.input :primer_pair_wt_io_penalty, input_html: {class: "input-medium"}, label: "IO Penalty Weight" %>
+  </div>
+</div>

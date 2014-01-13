@@ -1,0 +1,6 @@
+
+
+dot -Gpage="8.5,11.0" -Gmargin="0,0" -Tps graphs/summary/relationships.real.large.dot -oprintableERD.ps
+
+@config={:adapter=>"mysql", :host=>"genome-mysql.cse.ucsc.edu", :database=>"hg19", :username=>"genome", :password=>""}, @adapter_method="mysql_connection"
+

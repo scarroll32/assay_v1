@@ -1,0 +1,36 @@
+PRIMER PICKING RESULTS FOR Alain Batch: 91
+
+No mispriming library specified
+No internal oligo mishyb library specified
+Using 0-based sequence positions
+NO PRIMERS FOUND
+
+SEQUENCE SIZE: 102
+INCLUDED REGION SIZE: 102
+
+TARGETS (start, len)*: 37,21
+INTERNAL OLIGO EXCLUDED REGIONS (start, len)*: 37,21
+
+    0 CACAAGAGCTGCAAAGCAAGTTGCTAGAAAAGCCTAACTCTCTGCATGCCTCCGATGAAA
+                                           xxxxxxxxxxxxxxxxxxxxx  
+
+   60 ACTCTGCCCCAAAAGCAGACACCTGAAAATAAAAAATGGGAA
+                                                
+
+KEYS (in order of precedence):
+xxxxxx excluded region for internal oligo
+****** target
+
+
+Statistics
+         con   too    in    in   not          no    tm    tm   high  high  high        high      
+         sid  many   tar  excl    ok   bad    GC   too   too any_th 3'_th hair-  poly   end      
+        ered    Ns   get   reg   reg   GC% clamp   low  high  compl compl   pin     X  stab    ok
+Left     155     0     0     0     0     0     0    49    31      0     0    64     0     0    11
+Right    171     0     0     0     0     0     0    49    50      0     0    21    16     0    35
+Intl     364     0     0    47     0     0     0   227     0      0     0    69     7     0    14
+Pair Stats:
+considered 385, unacceptable product size 1, no internal oligo 384, ok 0
+libprimer3 release 2.3.4
+
+

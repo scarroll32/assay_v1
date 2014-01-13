@@ -1,0 +1,67 @@
+Process Flow
+
+.current blue = current step
+light gray = cannot yet be seleted
+.done dark gray = has been completed but user can go back
+.ready green = ready to be processed (user to click)
+.processing yellow = background processing
+.error orange = error in this step (message will display in error box)
+
+
+:start
+:select
+:lookup
+:configure
+:primer3
+:assay
+
+:batch_num
+0 = when first enter the application
+0 = when pressed 'new batch' button
+# = when user selects a batch from the previous runs table on the :start page
+
+session[:step] == :start
+user is on :start page
+if user picks an existing batch
+	session[:batch_num] = @batch.id
+	then user is transferred (for now) to the :configure page
+	
+if user picks a new batch
+	session[:batch_num] = 0
+	session[:step] = :select
+	user is transfered to cosmics select page
+	
+when user picks cosmic rows and hit select
+	CosmicsController.select executed
+	batch and batch_detail rows created
+    session[:step] = :lookup
+    session[:batch_num] = @batch.id
+	batch.step = lookuo
+	batch.status = ready
+	Ucsc query scheduled
+	page transferred to @batch
+	
+on batches#show page
+	if Ucsc completes successfully, it will update batch.step = configure and batch.status = ready
+	page checks step and status of batch and assigns to session[:step]
+	
+	if batch.step = lookup and batch.status = processing
+		session[:step] = :lookup
+		fields are locked
+	if batch.step = lookup and batch.status = error
+		session[:step] = :lookup and error on badge (no fix at this point except to start again)
+	if batch.step = :configure
+		fields are unlocked
+		user must select a primer3 default.
+	if user selects a primer3 default
+		:configure is blue
+		:primer3 is green, meaning the user can press then step of the pipeline
+		user can change settings on individual primer3 lines
+		if user presses :primer3 to background process primer3
+			primer3 goes yellow (processing)
+	when primer3 completes succussfully
+		:primer3 = blue
+		:assay = green
+		user can review primer3 info or click on assay to review
+	
+	

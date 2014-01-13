@@ -1,0 +1,26 @@
+<%= simple_form_for(@cosmic) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :doc %>
+    <%= f.input :cosmic_mut_id %>
+    <%= f.input :gene %>
+    <%= f.input :accession_number %>
+    <%= f.input :mut_description %>
+    <%= f.input :mut_syntax_cds %>
+    <%= f.input :mut_syntax_aa %>
+    <%= f.input :chromosome %>
+    <%= f.input :grch37_start %>
+    <%= f.input :grch37_stop %>
+    <%= f.input :mut_nt %>
+    <%= f.input :mut_aa %>
+    <%= f.input :tumour_site %>
+    <%= f.input :mutated_samples %>
+    <%= f.input :examined_samples %>
+    <%= f.input :mut_freq %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

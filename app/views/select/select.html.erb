@@ -1,0 +1,126 @@
+<%= render 'pipeline' %>
+
+<br/><br/>
+<div ng-controller="SearchCtrl" ng-init="init()">
+  <%= params_to_ng(params[:q], @fields, (params[:hf] || {}).values) %>
+  <div class="row">
+    <div class="span12">
+      <div class="well well-small">
+        <button type="button" class="btn btn-danger btn-small pull-right" ng-click="fieldsCriterias=[]">Remove All</button>
+        <h4><a href="#" data-toggle="collapse" data-target="#searchCriterias"> Search criterias </a></h4>
+        <div id="searchCriterias" class="collapse">
+          <hr/>
+          <div class="well well-small" ng-repeat="criteriaList in fieldsCriterias">
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-danger btn-small"
+                      ng-click="fieldsCriterias.removeAt($index)">Remove</button>
+              <button type="button" class="btn btn-success btn-small"
+                      ng-click="invokeModal(criteriaList.field, criteriaList.field_name)">Edit</button>
+            </div>
+            <b>'{{criteriaList.type}}'</b> criteria(s) on <b>{{criteriaList.field_name}}</b>
+            <div class="space15"></div>
+            <table class="table">
+              <tr class="row" ng-repeat="criteria in criteriaList.criterias">
+                <td class="small-td">
+                  <b>{{conditionName(criteria.condition)}}</b>
+                </td>
+                <td>
+                  <span ng-repeat="value in criteria.values">
+                    {{value.data}}
+                  </span>
+                </td>
+              </tr>
+            </table>
+
+          </div>
+
+          <div class="clearfix">
+            <button type="button" class="btn btn-primary pull-right" ng-click="search()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <button class="btn btn-mini btn-with-margin pull-right" ng-click="exportCSV()"> Export to CSV </button>
+      <button class="btn btn-mini btn-with-margin pull-right" ng-click="showAllColumns()"> Show all columns</button>
+	  
+	  <div class="digg_pagination">
+	      <div class="page_info">
+	        <%= page_entries_info @cosmics, :entry_name => 'Record' %>
+	      </div>
+	      <%= will_paginate @cosmics, :container => false %>
+	  </div>
+	  
+	  
+ 
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <%= render 'select/modal' %>
+
+  <%= form_tag locate_btn_path, method: :put, id: 'dataSourceForm', class: 'cosmics-form' do %>
+
+  <div class="row">
+	  <div class="span6"></div>
+	  <div class="span3">
+		<%= label_tag 'Forward Base Pair Offset' %>
+	  	<%= number_field_tag :forward_base_pair_offset, 100, :min => 1 %>
+	  </div>
+	  <div class="span3">
+		<%= label_tag 'Reverse Base Pair Offset' %>
+	  	<%= number_field_tag :reverse_base_pair_offset, 100, :min => 1 %>
+	  </div>
+  </div>
+  <div class="row">
+	<div class="span12">
+	    <table class="table table-striped table-bordered table-condensed">
+          <tr>
+            <th>
+              <%= check_box_tag(:select_all) + label_tag(nil, 'Select All', :for => :select_all)%>
+              <input type="hidden" name="query_json" value="<%= params[:q].to_json %>"/>
+            </th>
+            <%
+              @fields.each do |key, name|
+            %>
+              <th key="<%= key %>">
+                <%= sort_link(@search, key, name, {:hf => params[:hf]}) %><br/>
+                <%= icon_wrench(key, name) %>
+                <%= icon_hide(key) %>
+              </th>
+            <% end %>
+          </tr>
+
+          <% @cosmics.each do |cosmic| %>
+            <tr>
+              <td><%= check_box_tag "cosmic_mut_ids[]", cosmic.cosmic_mut_id, nil,  :class => 'select-cosmic' %></td>
+			  <td key="stanford"><%= check_box :cosmic, :stanford, {:checked => cosmic.stanford, :disabled => true }%></td>
+              <td key="vogel"><%= check_box :cosmic, :vogel, {:checked => cosmic.vogel, :disabled => true} %></td>
+              <td key="ampliseq"><%= check_box :cosmic, :ampliseq, {:checked => cosmic.ampliseq, :disabled => true} %></td>
+              <td key="cosmic_mut_id"><%= cosmic.cosmic_mut_id %></td>
+              <td key="gene"><%= cosmic.gene %></td>
+              <td key="accession_number"><%= cosmic.accession_number %></td>
+              <td key="mut_description"><%= cosmic.mut_description %></td>
+              <td key="mut_syntax_cds"><%= cosmic.mut_syntax_cds %></td>
+              <td key="mut_syntax_aa"><%= cosmic.mut_syntax_aa %></td>
+              <td key="chromosome"><%= cosmic.chromosome %></td>
+              <td key="grch37_start"><%= cosmic.grch37_start %></td>
+              <td key="grch37_stop"><%= cosmic.grch37_stop %></td>
+              <td key="mut_nt"><%= cosmic.mut_nt %></td>
+              <td key="mut_aa"><%= cosmic.mut_aa %></td>
+              <td key="tumour_site"><%= cosmic.tumour_site %></td>
+              <td key="mutated_samples"><%= cosmic.mutated_samples %></td>
+              <td key="examined_samples"><%= cosmic.examined_samples %></td>
+              <td key="mut_freq"><%= cosmic.mut_freq %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

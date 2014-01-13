@@ -1,0 +1,48 @@
+<h2>Primer Left</h2>
+<table>
+	  <tr>
+		<th></th>
+		<th>Sequence</th>
+		<th>GC%</th>
+		<th>Tm</th>
+		<th>Self Any</th>
+		<th>Self End</th>
+		<th>Hairpin</th>
+	  </tr>
+		<%# @primer3_parameter.primer_pairs.each do |left| %>
+		<tr>
+			<td><%#= left.ranking %></td>
+			<td><%#= left.primer_left_sequence %></td>
+			<td><%#= left.primer_left_gc_percent %></td>
+			<td><%#= left.primer_left_tm %></td>
+			<td><%#= left.primer_left_self_any_th %></td>
+		    <td><%#= left.primer_left_self_end_th %></td>
+			<td><%#= left.primer_left_hairpin_th %></td>
+		</tr>
+		<%# end %>
+</table>
+
+<h2>Primer Right</h2>
+<table>
+	  <tr>
+		<th></th>
+		<th>Sequence</th>
+		<th>GC%</th>
+		<th>Tm</th>
+		<th>Self Any</th>
+		<th>Self End</th>
+		<th>Hairpin</th>
+	  </tr>
+		<%# @primer3_parameter.primer_pairs.each do |right| %>
+		<tr>
+			<td><%#= right.ranking %></td>
+			<td><%#= right.primer_right_sequence %></td>
+			<td><%#= right.primer_right_gc_percent %></td>
+			<td><%#= right.primer_right_tm %></td>
+			<td><%#= right.primer_right_self_any_th %></td>
+		    <td><%#= right.primer_right_self_end_th %></td>
+			<td><%#= right.primer_right_hairpin_th %></td>
+		</tr>
+		<%# end %>
+</table>
+

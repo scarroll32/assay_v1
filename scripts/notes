@@ -1,0 +1,13 @@
+ => #<Bio::Ucsc::Hg19::Cosmic bin: 585, chrom: "chr1", chromStart: 69536, chromEnd: 69537, name: "COSM536198"> 
+
+
+ mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A
+ 
+
+COSM296834
+ 2302 chr1  225147935 225147937 COSM296834
+
+
+ redis-server /usr/local/etc/redis.conf
+resque-web
+rake resque:work QUEUE='*'

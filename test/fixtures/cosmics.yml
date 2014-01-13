@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  doc: MyString
+  cosmic_release: MyString
+  cosmic_mut_id: MyString
+  gene: MyString
+  accession_number: MyString
+  mut_description: MyString
+  mut_syntax_cds: MyString
+  mut_syntax_aa: MyString
+  chromosome: MyString
+  grch37_start: MyString
+  grch37_stop: MyString
+  mut_nt: MyString
+  mut_aa: MyString
+  tumour_site: MyString
+  mutated_samples: 1
+  examined_samples: 1
+  mut_freq: 9.99
+
+two:
+  doc: MyString
+  cosmic_release: MyString
+  cosmic_mut_id: MyString
+  gene: MyString
+  accession_number: MyString
+  mut_description: MyString
+  mut_syntax_cds: MyString
+  mut_syntax_aa: MyString
+  chromosome: MyString
+  grch37_start: MyString
+  grch37_stop: MyString
+  mut_nt: MyString
+  mut_aa: MyString
+  tumour_site: MyString
+  mutated_samples: 1
+  examined_samples: 1
+  mut_freq: 9.99

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gene: MyString
+  accession_number: MyString
+  abbrevtd: 1
+  cosmic_mut_id: MyString
+  mut_syntax_cds: MyString
+  mut_syntax_aa: MyString
+  strand: MyString
+  hg19_coordinates: MyString
+  amplicon_id: MyString
+
+two:
+  gene: MyString
+  accession_number: MyString
+  abbrevtd: 1
+  cosmic_mut_id: MyString
+  mut_syntax_cds: MyString
+  mut_syntax_aa: MyString
+  strand: MyString
+  hg19_coordinates: MyString
+  amplicon_id: MyString

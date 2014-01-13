@@ -1,0 +1,31 @@
+
+<input type="checkbox" name="primer_thermodynamic_alignment" value="Bike">Use Thermodynamic Alignment<br>
+<p>
+
+<div class="row">
+  <div class="span2"><%= f.input :primer_max_template_mispriming_th, label: "Max Template Mispriming", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_pair_max_template_mispriming_th, label: "Pair Max Template Mispriming", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_max_self_any_th, label: "Max Self Compl", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_max_self_end_th, label: "Max 3' Self Compl", input_html: {class: 'input-mini'} %></div>
+</div>
+
+<div class="row">
+  <div class="span2"><%= f.input :primer_pair_max_compl_any_th, label: "Max Pair Compl", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_pair_max_compl_end_th, label: "Max 3' Pair Compl", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_max_hairpin_th, label: "Max Primer Hairpin", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"></div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="span3"><%= f.input :primer_max_template_mispriming, label: "Max Template Mispriming", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_pair_max_template_mispriming, label: "Pair Max Template Mispriming", input_html: {class: 'input-mini'} %></div>
+  <div class="span4"><%= f.input :primer_max_self_any, label: "Max Self Compl", input_html: {class: 'input-mini'} %></div>
+</div>
+<div class="row">
+  <div class="span3"><%= f.input :primer_max_self_end, label: "Max 3' Self Compl", input_html: {class: 'input-mini'} %></div>
+  <div class="span3"><%= f.input :primer_pair_max_compl_any, label: "Max Pair Compl", input_html: {class: 'input-mini'} %></div>
+  <div class="span4"><%= f.input :primer_pair_max_compl_end, label: "Max 3' Pair Compl", input_html: {class: 'input-mini'} %></div>
+</div>
+<hr>
+

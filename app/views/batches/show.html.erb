@@ -1,0 +1,94 @@
+<%= render 'wizards/pipeline' %>
+
+<% if @state == :locate %>
+  <script type="text/javascript">
+    startLookupRefresher('<%= @batch.id %>');
+  </script>
+<% end %>
+
+ <%= content_tag "div", id: "batch_status", 'data-batch_status' => @batch.status do %><% end %>
+ <%= content_tag "div", id: "batch_step", 'data-batch_step' => @batch.step do %><% end %>
+
+ <br/>
+<div class="well">
+	<% if session[:step] == :lookup %>
+	The sequence location is being queried from the UCSC Genome Browser. Refresh the page at will to see if this process has completed.
+	<% else %>
+    Choose a Primer 3 default and press apply. This will apply the same settings to all genes in the batch. Optionally review the settings on each batch detail line. When ready to have the batch processed through Primer 3, click the <b>Lookup Sequence</b> step of the pipeline.
+	<% end %>
+</div>
+
+<h5>Batch Details: <%= @batch.id %></h5>
+  <%= simple_form_for(@batch, :html => { :class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="row">
+        <div class="span12">
+          <%= f.input :name, input_html: { value: User.find(@batch.user_id).name }, :disabled => true %>
+        </div>
+        <div class="span12">
+          <%#= f.input :step, :collection => Batch::STEP_OPTIONS %>
+          <%= f.input :step, input_html: { value: @batch.step }, :disabled => true %>
+        </div>
+        <div class="span12">
+          <%#= f.input :status, :collection => Batch::STATUS_OPTIONS %>
+          <%= f.input :status, input_html: { value: @batch.status }, :disabled => true %>
+        </div>
+
+        <div class="span12">
+          <%= f.input :description %>
+        </div>
+        <div class="span4">
+          <%#= f.input :primer3_setting_id, :collection => Primer3Setting.find(:all), include_blank: false, :title => 'Primer 3 Default',:label_method => :primer_sequence_id, label: "Primer 3 Default" %>
+        </div>
+        <div class="span4 offset2">
+          <%#= link_to 'Apply', apply_primer3_defaults_path, :class => 'btn btn-primary', :remote => true, :id => 'apply_btn' %>
+        </div>
+        </div class="span12">
+          <%= f.input :details, :input_html => { :class => "span6", :rows => 5 } %>
+        </div>
+      </div>
+    </div>
+
+
+<table class="table table-striped">
+  <tr>
+	<th></th>
+    <th>ID</th>
+    <th>Status</th>
+    <th>COSMIC Mut Id</th>
+    <th>Chrom</th>
+    <th>Start</th>
+    <th>End</th>
+    <th></th>
+  </tr>
+
+<% @batch.batch_details.each do |batch_detail| %>
+	<% @primer3_parameter = Primer3Parameter.find(:first, :conditions => {:batch_detail_id => batch_detail, :generated => false})%>
+
+
+  <tr>
+	<td><span class="label label-info">Splintered</span></td>
+    <td><%= link_to batch_detail.id, [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.status, [@batch, batch_detail] %></td>
+    <td><%= batch_detail.cosmic_mut_id %></td>
+    <td><%= link_to batch_detail.chrom, [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.chrom_start, [@batch, batch_detail] %></td>
+    <td><%= link_to batch_detail.chrom_end, [@batch, batch_detail] %></td>
+    <td><%= render partial: 'batches/buttons', locals: { :batch_detail => batch_detail } %>	
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+    <div class="form-actions">
+      <%= link_to 'Back', batches_path, :class => 'btn btn-info' %>
+      <%= f.button :submit, "Save Changes", :class => 'btn btn-primary' %>
+      <%#= link_to 'Process Batch', start_batch_path, :class =>"btn btn-primary", :remote => true, :id => 'process_btn' %>
+    </div>
+  <% end %>
+
+
+

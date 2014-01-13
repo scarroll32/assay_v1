@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  batch: 
+  gene: MyString
+  grch37_start: MyString
+  grch37_stop: MyString
+  status: MyString
+
+two:
+  batch: 
+  gene: MyString
+  grch37_start: MyString
+  grch37_stop: MyString
+  status: MyString
