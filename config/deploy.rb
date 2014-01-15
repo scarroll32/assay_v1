@@ -4,7 +4,7 @@ require "delayed/recipes"
 
 server "192.241.193.126", :web, :app, :db, primary: true
 
-set :application, "assay"
+set :application, "assay_v1"
 set :user, "assay"
 set :port, 1026
 set :deploy_to, "/home/#{user}/apps/#{application}"
