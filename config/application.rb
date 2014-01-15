@@ -10,7 +10,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Assay
+module Assay_v1
   class Application < Rails::Application
 
     config.generators do |g|

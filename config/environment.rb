@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Assay::Application.initialize!
+Assay_v1::Application.initialize!

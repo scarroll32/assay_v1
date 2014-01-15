@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Assay::Application.load_tasks
+Assay_v1::Application.load_tasks

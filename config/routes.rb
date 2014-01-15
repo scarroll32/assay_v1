@@ -1,4 +1,4 @@
-Assay::Application.routes.draw do
+Assay_v1::Application.routes.draw do
 
   resources :batches do
     resources :batch_details

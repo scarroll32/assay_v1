@@ -23,6 +23,7 @@ group :development do
   gem "better_errors", ">= 0.7.2"
   gem "quiet_assets", ">= 1.0.2"
   gem 'xray-rails'
+  gem 'rename'
 end
 
 gem 'rails-footnotes'

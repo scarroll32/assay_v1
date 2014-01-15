@@ -1,3 +1,16 @@
+# for initial setup => 
+#     cap deploy:setup
+#     edit database.yml
+#     cap deploy:cold
+#     cap deploy
+
+
+# normal update
+#     git commit -a -m "message"
+#     git push origin master
+#     cap deploy
+
+
 require "bundler/capistrano"
 require "rvm/capistrano"
 require "delayed/recipes"

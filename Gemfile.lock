@@ -162,6 +162,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rename (1.0.2)
+      rails (>= 3.0.0)
     rolify (3.2.0)
     roo (1.13.0)
       nokogiri
@@ -246,6 +248,7 @@ DEPENDENCIES
   rails (= 3.2.13)
   rails-footnotes
   ransack
+  rename
   rolify (>= 3.2.0)
   roo
   rvm-capistrano
