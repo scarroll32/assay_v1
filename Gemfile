@@ -52,7 +52,6 @@ gem 'daemons'
 
 
 gem "bio-ucsc-api", "~> 0.5.2"
-gem 'debugger'
 
 gem 'capistrano'
 gem 'rvm-capistrano'

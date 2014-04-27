@@ -2,7 +2,7 @@
 #     cap deploy:setup
 #     edit database.yml
 #     cap deploy:cold
-#     cap deploy
+#     cap 
 
 
 # normal update
